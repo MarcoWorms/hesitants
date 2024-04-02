@@ -1,5 +1,7 @@
 # proof-of-concept deployed at: https://basescan.org/address/0x587f3a80c1dfac9c39ea7c53d9ab39b2207b67a4
 
+> mints a procedural svg nft, increases mint price by 0.0001 ether
+
 - tokenURI:
 ![image](https://github.com/MarcoWorms/procedural-svg-nft/assets/7863230/ac22bb89-976f-420f-b754-f09d02294977)
 

@@ -5,8 +5,6 @@
     <title>Procedural SVG Art Generator</title>
     <script>
         function generateSVG() {
-            const tokenId = Math.floor(Math.random() * 1000000);
-            const randomSeed = uint256(keccak256(tokenId.toString()));
 
             let svg = '<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">';
 
@@ -32,22 +30,6 @@
             document.getElementById('svgContainer').innerHTML = svg;
         }
 
-        function random(seed, offset) {
-            const hash = keccak256(seed.toString() + offset.toString());
-            return parseInt(hash.slice(0, 8), 16);
-        }
-
-        function keccak256(input) {
-            // Keccak-256 hash implementation goes here
-            // You can use a library like js-sha3 or implement it yourself
-            // For simplicity, this example uses a placeholder hash function
-            return 'placeholder_hash_' + input;
-        }
-
-        function uint256(input) {
-            // Simulate uint256 behavior by taking the first 8 characters of the hash
-            return parseInt(input.slice(0, 8), 16);
-        }
     </script>
 </head>
 <body>

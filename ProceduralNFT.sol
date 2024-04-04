@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.25;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -44,9 +44,9 @@ contract ProceduralNFT is ERC721, Ownable {
             bytes(
                 string(
                     abi.encodePacked(
-                        '{"name": "Procedural NFT #',
+                        '{"name": ":/ ',
                         tokenId.toString(),
-                        '", "description": "A procedurally generated NFT.", "image": "data:image/svg+xml;base64,',
+                        '", "description": "A procedurally generated :/ svg", "image": "data:image/svg+xml;base64,',
                         Base64.encode(bytes(svg)),
                         '"}'
                     )
@@ -58,12 +58,12 @@ contract ProceduralNFT is ERC721, Ownable {
 
     function generateSVG(uint256 tokenId) internal pure returns (string memory) {
         uint256 randomSeed = uint256(keccak256(abi.encodePacked(tokenId)));
-        string memory svg = '<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500">';
-        for (uint256 i = 0; i < 10; i++) {
-            uint256 x1 = random(randomSeed, i) % 500;
-            uint256 y1 = random(randomSeed, i + 1) % 500;
-            uint256 x2 = random(randomSeed, i + 2) % 500;
-            uint256 y2 = random(randomSeed, i + 3) % 500;
+        string memory svg = '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" style="background-color: white;">';
+        for (uint256 i = 0; i < 1; i++) {
+            uint256 x1 = random(randomSeed, i) % 270 + 30;
+            uint256 y1 = random(randomSeed, i + 1) % 270 + 30;
+            uint256 x2 = random(randomSeed, i + 2) % 270 + 30;
+            uint256 y2 = random(randomSeed, i + 3) % 270 + 30;
             svg = string(abi.encodePacked(
                 svg,
                 '<line x1="', x1.toString(), '" y1="', y1.toString(),
@@ -71,10 +71,10 @@ contract ProceduralNFT is ERC721, Ownable {
                 '" stroke="black" />'
             ));
         }
-        for (uint256 i = 0; i < 10; i++) {
-            uint256 cx = random(randomSeed, i + 4) % 500;
-            uint256 cy = random(randomSeed, i + 5) % 500;
-            uint256 r = random(randomSeed, i + 6) % 10;
+        for (uint256 i = 0; i < 2; i++) {
+            uint256 cx = random(randomSeed, i + 4) % 240 + 30;
+            uint256 cy = random(randomSeed, i + 5) % 240 + 30;
+            uint256 r = random(randomSeed, i + 6) % 5 + 5;
             svg = string(abi.encodePacked(
                 svg,
                 '<circle cx="', cx.toString(), '" cy="', cy.toString(),

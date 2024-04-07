@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.25;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -7,14 +7,14 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/Base64.sol";
 
-contract ProceduralNFT is ERC721, Ownable {
+contract Hesitants is ERC721, Ownable {
     using Counters for Counters.Counter;
     using Strings for uint256;
 
     Counters.Counter private _tokenIdCounter;
     uint256 public mintPrice = 0.0001 ether;
 
-    constructor() Ownable(msg.sender) ERC721("ProceduralNFT", "PNFT") {}
+    constructor() Ownable(msg.sender) ERC721("Hesitants", "HES") {}
 
     function withdrawMintEther() public onlyOwner {
         payable(owner()).transfer(address(this).balance);
@@ -44,9 +44,9 @@ contract ProceduralNFT is ERC721, Ownable {
             bytes(
                 string(
                     abi.encodePacked(
-                        '{"name": ":/ ',
+                        '{"name": "Hesitant #',
                         tokenId.toString(),
-                        '", "description": "A procedurally generated :/ svg", "image": "data:image/svg+xml;base64,',
+                        '", "image": "data:image/svg+xml;base64,',
                         Base64.encode(bytes(svg)),
                         '"}'
                     )
